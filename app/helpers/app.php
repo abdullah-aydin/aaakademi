@@ -7,12 +7,22 @@ function controller($controllerName){
 }
 
 function view($viewName){
-    return PATH . '/app/view/' . setting('theme') . '/' . $viewName . '.php';
+    return PATH . '/app/theme/' . $viewName . '.php';
 }
 function route($index)
 {
     global $route;
     return isset($route[$index]) ? $route[$index] : false;
+}
+
+function theme_url($url = false)
+{
+    return URL .'/'. $url;
+}
+
+function theme_assets_url($url = false)
+{
+    return URL .'/app/theme/assets/' . $url;
 }
 
 

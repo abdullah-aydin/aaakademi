@@ -5,13 +5,16 @@ if(!session('user_email')){
 
 
 // QUERY OF DELETE TRIAL
-if(post('trialDelete') &&post('trialId')) {
+if(post('trialDelete') &&post('trialId') && post('tableName')) {
 
     $id = post('trialId');
+    $trial_table_name = post('tableName');
 
 
-    $trialDeleteQuery = $db->prepare('DELETE FROM trials WHERE id = ? ');
+
+    $trialDeleteQuery = $db->prepare('DELETE FROM :table WHERE id = ? ');
     $trialDeleteQuery->execute([
+        $trial_table_name,
         $id
     ]);
 

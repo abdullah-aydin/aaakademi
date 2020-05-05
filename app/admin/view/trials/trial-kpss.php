@@ -15,6 +15,9 @@
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+
+
+    <!-- GK GY DENEMELERİ -->
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
@@ -23,7 +26,7 @@
                     <h1 class="m-0 text-dark">Denemeler</h1>
                 </div>
                 <div class="ml-auto p-2">
-                    <a href="<?=admin_url('trial-add')?>">
+                    <a href="<?=admin_url('trial-add-kpss')?>">
                     <button type="button" id="addQuestionTarget" class="btn btn-primary">Deneme Ekle</button>
                     </a>
                 </div>
@@ -53,26 +56,28 @@
                             <th scope="row" class="align-middle"><?=$index+1?></th>
                             <td class="align-middle"><?=$trial['trial_name']?></td>
                             <td class="align-middle tdDate"><?=$trial['trial_date']?></td>
-                            <td class="align-middle"><?=lgs_puan_hesaplama($index)?></td>
+                            <td class="align-middle"><?=kpss_puan_hesaplama($index)['net']?></td>
                             <td class="align-middle">
                                 <div class="d-flex justify-content-center">
-                                    <a class="btn btn-info btn-sm mr-1" href="<?=admin_url('trial-edit?id='.$trial['id'])?>">
+                                    <a class="btn btn-info btn-sm mr-1" href="<?=admin_url('trial-edit-kpss?id='.$trial['id'])?>">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <button class="btn  btn-danger btn-sm" onclick="deleteTrial(<?=$trial['id']?>,this)">
+                                    <button class="btn  btn-danger btn-sm" onclick="deleteTrial(<?=$trial['id']?>,this,'trial_kpss')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </div>
                             </td>
                         </tr>
                     <?php endforeach; ?>
-
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
     <!-- /.content -->
+    <!-- /. GK GY DENEMELERİ -->
+
+
 
 </div>
 <!-- /.content-wrapper -->

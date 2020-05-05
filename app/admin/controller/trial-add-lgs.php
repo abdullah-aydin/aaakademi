@@ -1,21 +1,8 @@
 <?php
-if(!session('user_email')){
+
+if(!session('user_email'))
+{
     header('location:'.admin_url('signin'));
-}
-
-$id = get('id');
-
-if(!$id){
-    echo 'basgitlan burdan';
-}
-
-
-$trial=$db->from('trials')
-    ->where('id', $id)
-    ->first();
-
-if(!$trial){
-    header('location:'.admin_url('trial'));
 }
 
 if (post('submit'))
@@ -40,8 +27,9 @@ if (post('submit'))
     $english_false=post('english_false');
     $english_description=post('english_description');
 
-    $query = $db->update('trials')
-        ->where('id', $id)
+
+
+    $query = $db->insert('trials')
         ->set(array(
             'user_id' => session('user_id'),
             'trial_name' => $trial_name,
@@ -67,10 +55,22 @@ if (post('submit'))
 
     if ( $query ){
         $success = 'Denemenizi başarı ile ekleniz, yönlendiriliyorsunuz...';
-        header('Location:' . admin_url('trial'));
+        header('Refresh:2;url=' . admin_url('trial'));
+    }
+
+    function validatorTrial($t, $f, $e, $total=10){
+        $count = $t+$f+$e;
+
+        if ($count<=0 && $count>$total){
+            return false;
+        } else {
+            return true;
+        }
+
     }
 
 }
 
 $menu_active = 'trial';
-require admin_view('trial-edit');
+
+require admin_view('trials/trial-add-lgs');

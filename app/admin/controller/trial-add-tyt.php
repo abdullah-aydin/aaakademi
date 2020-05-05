@@ -72,4 +72,5 @@ if (post('submit'))
 }
 
 $menu_active = 'trial';
-require admin_view('trial-add');
+
+require admin_view('trials/trial-add-lgs');

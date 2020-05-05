@@ -61,4 +61,4 @@ function lgs_puan_hesaplama($param){
 
 
 $menu_active = 'trial';
-require admin_view('trial-lgs');
+require admin_view('/trials/trial-lgs');

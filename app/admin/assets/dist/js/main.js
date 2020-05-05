@@ -589,7 +589,7 @@ function deleteBook(_id, table_row) {
     })
 }
 
-function deleteTrial(_id, table_row) {
+function deleteTrial(_id, table_row, _table_name) {
     // $(table_row).parents('tbody').addClass('certain_class');
     // var c = $(table_row).parents('tbody').children()
 // for (i = 0; i < c.length; i++) {
@@ -613,7 +613,7 @@ function deleteTrial(_id, table_row) {
                 type: "POST",
                 url: deleteTrialApi,
                 cache: false,
-                data: {'trialDelete': 1, 'trialId': _id},
+                data: {'trialDelete': 1, 'trialId': _id, 'tableName': _table_name},
                 success: (result) => {
                     if (result) {
                         Swal.fire(

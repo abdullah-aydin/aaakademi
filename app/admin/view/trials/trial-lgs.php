@@ -23,7 +23,7 @@
                     <h1 class="m-0 text-dark">Denemeler</h1>
                 </div>
                 <div class="ml-auto p-2">
-                    <a href="<?=admin_url('trial-add')?>">
+                    <a href="<?=admin_url('trial-add-lgs')?>">
                     <button type="button" id="addQuestionTarget" class="btn btn-primary">Deneme Ekle</button>
                     </a>
                 </div>
@@ -56,7 +56,7 @@
                             <td class="align-middle"><?=lgs_puan_hesaplama($index)?></td>
                             <td class="align-middle">
                                 <div class="d-flex justify-content-center">
-                                    <a class="btn btn-info btn-sm mr-1" href="<?=admin_url('trial-edit?id='.$trial['id'])?>">
+                                    <a class="btn btn-info btn-sm mr-1" href="<?=admin_url('trial-edit-lgs?id='.$trial['id'])?>">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <button class="btn  btn-danger btn-sm" onclick="deleteTrial(<?=$trial['id']?>,this)">

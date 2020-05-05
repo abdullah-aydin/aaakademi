@@ -7,6 +7,10 @@ if(!session('user_email')){
 
 if (session('user_class') <= 8){
     require admin_controller('trial-lgs');
-} elseif (session('user_class') >= 9){
-    require admin_controller('trial-tyt');
+} elseif (session('user_class') >= 9 && session('user_class') < 80){
+    require admin_controller('trial-yks');
+} elseif (session('user_class') == 80){
+    require admin_controller('trial-kpss');
+} elseif (session('user_class') == 81){
+    require admin_controller('trial-kpss-education');
 }
