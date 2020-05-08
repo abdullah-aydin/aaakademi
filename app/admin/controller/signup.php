@@ -29,7 +29,6 @@
          if ($row){
              $error = 'Bu kullanıcı adı ya da e-posta zaten kullanılıyor. Lütfen başka bir tane deneyin.';
          } else {
-
              // üyeyi ekle
              $result = User::Register([
                  'user_name' => $user_name,

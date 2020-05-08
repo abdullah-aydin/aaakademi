@@ -10,15 +10,7 @@
 <!-- /.control-sidebar -->
 
 <!-- Main Footer -->
-<footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-        Anything you want
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2020 <a href="#">AA |Brothers</a>.</strong> All rights reserved.
-</footer>
-</div>
+
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
@@ -31,6 +23,8 @@
 <script src="<?=admin_assets_url('dist/js/adminlte.min.js')?>"></script>
 <!-- jQuery UI -->
 <script src="<?=admin_assets_url('plugins/jquery-ui/jquery-ui.min.js')?>"></script>
+<!-- chart -->
+<script src="<?=admin_assets_url('plugins/Chart/chart.js')?>"></script>
 <!-- SweetAlert2 -->
 <script src="<?=admin_assets_url('plugins/sweetalert2-theme-bootstrap-4/sweetalert2.min.js')?>"></script>
 <!-- MainJS -->
@@ -38,10 +32,6 @@
 
 
     <script type="text/javascript">
-
-
-
-
 
         $(function() {
             var Error = Swal.mixin({

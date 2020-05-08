@@ -22,7 +22,7 @@
                                 echo $menu['url']==$menu_active?  $menu['title']:null;
                             }
                             ?>
-                        </h1>
+                        <i><u style="color:#17a2b8">(Yakında Aktif Olacaktır)</u></i></h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->

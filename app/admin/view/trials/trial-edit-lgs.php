@@ -43,7 +43,7 @@
                                 <strong>Deneme Başlığı</strong>
                             </div>
                             <div class="card-tools">
-                                <cite ><?=isset($trial['trial_date'])?$trial['trial_date']:null?></cite>
+                                <cite ><?=isset($trial['trial_date'])?date("d.m.Y", strtotime($trial['trial_date'])):null?></cite>
                             </div>
                         </div>
                         <div class="card-body">

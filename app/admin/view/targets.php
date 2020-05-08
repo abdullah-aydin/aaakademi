@@ -46,7 +46,7 @@
                             ?>
                             <tr id="question_target_<?= $questionTargetValue['id'] ?>">
                                 <td class="p-2"></td>
-                                <td><a><?= $_lessons[$questionTargetValue['lesson_name']] ?> dersinden <?= $questionTargetValue['target'] ?> soru</a><br /><small><?= $questionTargetValue['init_date'] ?></small></td>
+                                <td><a><?= $_lessons[$questionTargetValue['lesson_name']] ?> dersinden <?= $questionTargetValue['target'] ?> soru</a><br /><small><i><?= date("d.m.Y", strtotime($questionTargetValue['init_date'])) ?></i></small></td>
                                 <td class="project_progress">
                                     <div class="progress progress-sm">
                                         <div class="progress-bar bg-<?= percent_progresbar_color(percent_calculation($q_total_solved, $questionTargetValue['target'])); ?>" role="progressbar" aria-volumenow="<?= percent_calculation($q_total_solved, $questionTargetValue['target']); ?>" aria-volumemin="0" aria-volumemax="100" style="width: <?= percent_calculation($q_total_solved, $questionTargetValue['target']); ?>%">
@@ -113,10 +113,10 @@
                         <?php foreach ($bookTargets as $bookTarget) : ?>
                             <tr id="book_target_<?= $bookTarget['id'] ?>">
                                 <td class="p-2">1</td>
-                                <td><a>Günlük kitap okuma hedefiniz <?= $bookTarget['target'] ?> sayfa</a><br /><small><?= $bookTarget['init_date'] ?></small></td>
+                                <td><a>Günlük kitap okuma hedefiniz <?= $bookTarget['target'] ?> sayfa</a><br /><small><i><?= date("d.m.Y", strtotime($bookTarget['init_date'])) ?></i></small></td>
                                 <td class="project_progress">
                                     <div class="progress progress-sm">
-                                        <div class="progress-bar bg-yellow" role="progressbar" aria-volumenow="<?= percent_calculation($reads_total, $bookTarget['target']) ?>" aria-volumemin="0" aria-volumemax="100" style="width: <?= percent_calculation($reads_total, $bookTarget['target']) ?>%">
+                                        <div class="progress-bar bg-<?= percent_progresbar_color(percent_calculation($reads_total, $bookTarget['target'])); ?>" role="progressbar" aria-volumenow="<?= percent_calculation($reads_total, $bookTarget['target']) ?>" aria-volumemin="0" aria-volumemax="100" style="width: <?= percent_calculation($reads_total, $bookTarget['target']) ?>%">
                                         </div>
                                     </div>
                                     <small><?= percent_calculation($reads_total, $bookTarget['target']) ?> %</small><small> (<?= $reads_total ?> /<?= $bookTarget['target'] ?>)</small>

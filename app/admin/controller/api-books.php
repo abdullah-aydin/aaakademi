@@ -95,13 +95,18 @@ if(post('bookDelete') &&post('bookId')){
 
     $id = post('bookId');
 
-    $booksReads = $db->from('book_reads')
+    $booksReads = $db->from('books_reads')
         ->where('book_id', $id)
         ->first();
+
+
         if($booksReads){
-            $bookDeleteQuery = $db->prepare('DELETE books, books_reads FROM books INNER JOIN books_reads WHERE books.id = books_reads.book_id and books.id = ? ');
+            $bookDeleteQuery = $db->prepare('DELETE books, books_reads
+                            FROM books
+                            INNER JOIN books_reads ON books.id = books_reads.book_id
+                            WHERE books.id = books_reads.book_id and books.id = :id ');
             $bookDeleteQuery->execute([
-                $id
+                'id'=>$id
             ]);
         } else {
             $query = $db->delete('books')

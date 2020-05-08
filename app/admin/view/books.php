@@ -67,9 +67,7 @@
                                     </a>
                                     <br>
                                     <small>
-                                        <small>
-                                            <i><?= $book['book_init_date'] ?></i>
-                                        </small>
+                                        <i><?= date("d.m.Y", strtotime($book['book_init_date'])) ?></i>
                                     </small>
                                 </td>
                                 <td id="book_progress_<?= $book['book_id'] ?>" class="book_progress">
@@ -153,9 +151,7 @@
                                     </a>
                                     <br>
                                     <small>
-                                        <small>
-                                            <i><?= $book['book_init_date'] ?></i>
-                                        </small>
+                                        <i><?= date("d.m.Y", strtotime($book['book_init_date'])) ?></i>
                                     </small>
                                 </td>
                                 <td id="project_progress_<?= $book['book_id'] ?>" class="project_progress">
@@ -174,7 +170,7 @@
                                     </small>
                                     &nbsp;&nbsp
                                     <small>
-                                            <i><?= $book['book_end_date'] ?></i>
+                                            <i><?= date("d.m.Y", strtotime($book['book_end_date'])) ?></i>
                                     </small>
                                 </td>
                                 <td class="align-middle">

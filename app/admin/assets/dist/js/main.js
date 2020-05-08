@@ -340,14 +340,14 @@ $(document).ready(function () {
             cache: false,
             data: {'activeLessons': "1"},
             success: function (result) {
-                console.log(result);
-                var lessons = JSON.parse(result);
 
+                var lessons = JSON.parse(result);
                 var lessons_value = {};
+
                 $.map(lessons, function (value, key) {
                     lessons_value[key] = value;
                 });
-                console.log(lessons_value);
+
                 Swal.mixin({
                     input: 'text',
                     showCancelButton: true,
@@ -379,8 +379,8 @@ $(document).ready(function () {
                         inputValidator: (value) => {
                             return new Promise((resolve) => {
                                 if (value) {
-                                    if (value <= 10) {
-                                        resolve('10 veya daha küçük bir değer giremezsiniz.')
+                                    if (value <= 9) {
+                                        resolve('9 veya daha küçük bir değer giremezsiniz.')
                                     } else {
                                         resolve()
                                     }
@@ -399,7 +399,7 @@ $(document).ready(function () {
                             html: `<i>Aşağıdaki hedefi eklemek istediğinize emin misiniz?</i><br><br><br>
                             Ders Adı: <b>${lessons_value[lessonName]}</b> <br>
                             Soru Sayısı: <b>${questionTarget}</b> `,
-                            confirmButtonText: 'Kitabı Ekle &rarr;',
+                            confirmButtonText: 'Hedefi Ekle &rarr;',
                             cancelButtonText: 'Vazgeç &#10540;',
                             confirmButtonColor: 'green',
                             showCancelButton: true,
@@ -469,8 +469,8 @@ $(document).ready(function () {
                 inputValidator: (value) => {
                     return new Promise((resolve) => {
                         if (value) {
-                            if (value<=10){
-                                resolve('10 veya daha küçük bir değer giremezsiniz')
+                            if (value<=9){
+                                resolve('9 veya daha küçük bir değer giremezsiniz')
                             } else {
                                 resolve()
                             }
@@ -524,6 +524,7 @@ $(document).ready(function () {
                                     "                                </div>\n" +
                                     "                            </td>\n" +
                                     "                        </tr>")
+                                $('#book_targets_container div:last-child').hide();
                             }
 
                         }, 'json')
@@ -696,12 +697,6 @@ function deleteQuestionTarget(_id, table_row) {
 }
 
 function deleteBookTarget(_id, table_row) {
-    // $(table_row).parents('tbody').addClass('certain_class');
-    // var c = $(table_row).parents('tbody').children()
-// for (i = 0; i < c.length; i++) {
-//     console.log($($(c[i])[0]).find('td:first').text(i+1))
-// }
-
 
     event.preventDefault();
     Swal.fire({
@@ -728,10 +723,9 @@ function deleteBookTarget(_id, table_row) {
                             'success'
                         )
                         $(table_row).parents('tr').remove();
+                        $('#book_targets_container div:last-child').show();
 
-                        // for(i=0;i<c.length ; i++){
-                        //     $($(c[i])[0]).find('td:first').text(i+1)
-                        // }
+
                     } else {
                         Swal.fire(
                             'Hata!',

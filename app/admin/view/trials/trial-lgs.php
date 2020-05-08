@@ -52,7 +52,7 @@
                         <tr>
                             <th scope="row" class="align-middle"><?=$index+1?></th>
                             <td class="align-middle"><?=$trial['trial_name']?></td>
-                            <td class="align-middle tdDate"><?=$trial['trial_date']?></td>
+                            <td class="align-middle tdDate"><?=date("d.m.Y", strtotime($trial['trial_date']))?></td>
                             <td class="align-middle"><?=lgs_puan_hesaplama($index)?></td>
                             <td class="align-middle">
                                 <div class="d-flex justify-content-center">
