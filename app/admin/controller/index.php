@@ -75,6 +75,18 @@ $query->execute([
 ]);
 $week_question_total = $query->fetch(PDO::FETCH_ASSOC);
 $week_question_total = isset($week_question_total['total_question'])? $week_question_total['total_question'] :0;
+//***************
+$query = $db->prepare('SELECT
+	(SUM(question_true) +
+	SUM(question_false) +
+	SUM(question_empty))as total_question
+    FROM questions 
+    WHERE user_id=:user_id ');
+$query->execute([
+    'user_id' => session('user_id')
+]);
+$all_question_total = $query->fetch(PDO::FETCH_ASSOC);
+$all_question_total = isset($all_question_total['total_question'])? $all_question_total['total_question'] :0;
 
 /*********day_questions_record*********** */
 $query = $db->prepare('SELECT (SUM(question_true) +
@@ -82,7 +94,8 @@ $query = $db->prepare('SELECT (SUM(question_true) +
 	SUM(question_empty))as record_question,
 	DATE_FORMAT(question_date, "%d %M %Y") as record_day
     FROM questions 
-    WHERE DAY(question_date) = DAY(CURDATE()) AND user_id =:user_id 
+    WHERE user_id =:user_id 
+    group by day(question_date)
     order by record_question desc');
 $query->execute([
     'user_id' => session('user_id')

@@ -27,9 +27,10 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3><?=$week_question_total?></h3>
+                                <h3><?=$week_question_total?> | <?=$all_question_total?></h3>
 
-                                <strong>Haftalık Çözülen Toplam Soru</strong>
+                                <strong>(Genel | Haftalık)</strong><br>
+                                <strong> Çözülen Soru</strong>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
